@@ -243,13 +243,16 @@
 
 
     function NewDes(){
+        let div=document.createElement('div');
+        div.classList.add("form-floating");
+
       
       let input = document.createElement('input');
       input.setAttribute("id","floatingInput");
+      input.classList.add("form-control");
+
       input.placeholder = 'Enter destination (country, region, or city)';
 
-
- 
       container.appendChild(input);
     }
 
