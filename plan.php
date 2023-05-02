@@ -86,6 +86,35 @@
     font-family: Klarna Display,Helvetica Neue,Arial,Helvetica,sans-serif;
 
 }
+.form-floating>.form-control{
+  margin: 10px 10px 10px 1px;
+}
+.rotate {
+    -moz-transition: all .5s linear;
+    -webkit-transition: all .5s linear;
+    transition: all .5s linear;
+}
+.rotate.up {
+    -moz-transform:rotate(180deg);
+    -webkit-transform:rotate(180deg);
+    transform:rotate(180deg);
+}
+.form-check input {
+  vertical-align: middle;
+}
+.form-check-inline .form-check-input {
+  margin-left: 6px;
+}
+.row{
+  margin-right: 1px;
+    margin-left: -1px;
+
+}
+.col-md-4.border.sed{
+  padding-top: 5px;
+    padding-bottom: 10px;
+    margin: 20px;
+}
 </style>
 <script>
    
@@ -129,15 +158,16 @@
       </div>
     </div>
   </nav>
-  <div class="row border mt-4" style="height: 500px;">
-    <div class="col-md-4 border">dsfds</div>
-    <div class="col-md-4 border " >
+  <div class="row border mt-4" >
+    <div class="col-md-4 "></div>
+    
+    <div class="col-md-4 border sed" >
         <h1 class="plan">Itinerary planner
 </h1>
 
         <div class="form-floating mb-3" id="addDes" >
             <input type="name" class="form-control" id="floatingInput" placeholder="Enter destination (country, region, or city)">
-            <label for="floatingInput">Enter destination (country, region, or city)</label>
+            <label for="floatingInput" id="lab">Enter destination (country, region, or city)</label>
         </div>
 
         <button type="button" class="btn btn-link" onclick="NewDes()">+ Add destination</button>
@@ -164,7 +194,7 @@
         <div class="collapse12">
         <a data-target="#demo" data-toggle="collapse">
 
-          Activities preferences  (optional) <i class="fa fa-chevron-down"></i>    </a>
+          Activities preferences  (optional)<div class="fa fa-chevron-down rotate"></div>    </a>
       
       <div class="collapse out" id="demo">
         <div class="btn-group btn-group-toggle" data-toggle="buttons" style="margin:15px 20px 15px 5px;">  
@@ -190,7 +220,7 @@
             </label>  
              
             </div>
-            <div class="form-check form-check-inline">
+<div>            <div class="form-check form-check-inline">
               <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
               <label class="form-check-label" for="inlineCheckbox1">Culture</label>
             </div>
@@ -202,6 +232,8 @@
               <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" >
               <label class="form-check-label" for="inlineCheckbox3">Relaxing</label>
             </div>
+  </div>
+  <div>
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
               <label class="form-check-label" for="inlineCheckbox1">Romantic</label>
@@ -214,6 +246,8 @@
               <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" >
               <label class="form-check-label" for="inlineCheckbox3">Historic</label>
             </div>
+  </div>
+  <div>
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
               <label class="form-check-label" for="inlineCheckbox1">Museums
@@ -228,11 +262,13 @@
               <label class="form-check-label" for="inlineCheckbox3">Wildlife</label>
             </div>
       </div>
-      
+  </diV>
       </div>
         <button class="see">See your trip</button> 
 
     </div>
+  
+    <div class="col-md-4 "></div>
 
   </div>
 
@@ -251,9 +287,12 @@
       input.setAttribute("id","floatingInput");
       input.classList.add("form-control");
 
-      input.placeholder = 'Enter destination (country, region, or city)';
+      
+      // var x = document.createElement("INPUT");
+      // x.setAttribute("type", "name");
+      // x.classList.add("form-control");
 
-      container.appendChild(input);
+          container.appendChild(input);
     }
 
 
@@ -275,6 +314,9 @@ let picker = new Litepicker({
     })
   }
 });
+$(".rotate").click(function () {
+    $(this).toggleClass("up");
+})
 </script>
 
 
