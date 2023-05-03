@@ -20,6 +20,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"> </script>  
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"> </script>  
 <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 <style>
 
@@ -45,10 +47,10 @@
     font-family: Klarna Text,Helvetica Neue,Arial,Helvetica,sans-serif;
     font-size: 16px;
     cursor: pointer;
-
+margin:20px 10px 10px 1px;
 }
 .collapse12{
-  margin:15px;
+  margin:30px 10px 10px 1px;
 }
 .btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {  
   background: #b3f9ff;  
@@ -115,11 +117,107 @@
     padding-bottom: 10px;
     margin: 20px;
 }
+.diva{
+  display:flex;
+}
+button.btn.btn-primary.dropdown-toggle{
+  background: white;
+    color: black;
+    width: 119%;
+    border: none;
+}
+
+
+
+
+
 </style>
 <script>
-   
+  var i=0;
+  var j=0;
+  var k=0;
+  function buttonClick() {
+      display()
+      i++;
+      document.getElementById('inc').value = i;
+  }
+   function buttonClick1() {
+      display1()
+      if(i<=0)
+      {
+          alert("Guests can not be less than 0");
+      }
+      else
+      {
+          i--;
+       document.getElementById('inc').value = i;
+      }
+  }
+  function buttonClick2() {
+      display()
+      j++;
+      document.getElementById('incval').value = j;
+  }
+   function buttonClick3() {
+      display1()
+      if(j<=0)
+      {
+          alert("Guests can not be less than 0");
+      }
+      else
+      {
+          j--;
+       document.getElementById('incval').value = j;
+      }
+  }
+  function buttonClick4() {
+      display()
+      k++;
+      document.getElementById('incvall1').value = k;
+  }
+   function buttonClick5() {
+      display1()
+      if(k<=0)
+      {
+          alert("Guests can not be less than 0");
+      }
+      else
+      {
+          k--;
+       document.getElementById('incvall1').value = k;
+      }
+  }
+ 
+  function display(){
+        document.getElementById("myval").innerHTML= 1+i+j+k;
+    }
+    function display1(){
+        document.getElementById("myval").innerHTML= i+j+k-1;
+    }
 
-</script>
+    
+
+  
+	
+		function btnToggle() {
+			document.getElementById("Dropdown").classList.toggle("show");
+		}
+		
+		document.getElementById("Dropdown").addEventListener('click', function (event) {
+			alert("click outside");
+			event.stopPropagation();
+		});
+		
+		
+	</script>	
+</body>
+
+</html>						
+
+
+
+  </script>
+
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -179,16 +277,48 @@
         
 </div>
           <div class="col-md-4 border">
-          <select>
-<?php
-    for ($i=1; $i<=100; $i++)
-    {
-        ?>
-            <option value="<?php echo $i;?>"><?php echo $i;?></option>
-        <?php
-    }
-?>
-</select>
+          
+         <div class="dropdownmenu">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" data-bs-auto-close="false" onClick="btnToggle()" class="dropbutton"> <div  id="myval" value="0">0</div>Travellers
+    
+  <span class="caret"></span></button>
+  <div id="Dropdown" class="dropdownmenu-content" >
+
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuClickableInside">
+      <li>
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <LABEL>Adults:</LABEL>&nbsp;&nbsp;&nbsp;
+
+        <button type="button" class="btn btn-primary" onclick="buttonClick1();">-</button>
+        <input type="text" id="inc" value="0"></input>
+        <button type="button" class="btn btn-primary" onclick="buttonClick();">+</button>
+        </div>
+</li>
+      <li><div class="btn-group" role="group" aria-label="Basic example">
+        <LABEL>Teens:</LABEL>&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <button type="button" class="btn btn-primary" onclick="buttonClick3();">-</button>
+        <input type="text" id="incval" value="0"></input>
+        <button type="button" class="btn btn-primary" onclick="buttonClick2();">+</button>
+      </div>
+      
+      </li>
+      <li>
+        <li><div class="btn-group" role="group" aria-label="Basic example">
+          <LABEL>Kids:</LABEL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  
+          <button type="button" class="btn btn-primary" onclick="buttonClick5();">-</button>
+          <input type="text" id="incvall1" value="0"></input>
+          <button type="button" class="btn btn-primary" onclick="buttonClick4();">+</button>
+        </div>
+      </li>
+      <li><button type="button" class="close">Close&times;</button></li>
+
+    </ul>
+    </div>
+  </div>
+   
+        
           </div>
         </div>
         <div class="collapse12">
@@ -220,6 +350,7 @@
             </label>  
              
             </div>
+            <div class="diva">
 <div>            <div class="form-check form-check-inline">
               <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
               <label class="form-check-label" for="inlineCheckbox1">Culture</label>
@@ -263,7 +394,6 @@
             </div>
       </div>
   </diV>
-      </div>
         <button class="see">See your trip</button> 
 
     </div>
@@ -271,11 +401,13 @@
     <div class="col-md-4 "></div>
 
   </div>
-
+</div>
 </body>
 
 <script>
       const container = document.getElementById('addDes');
+      
+  
 
 
     function NewDes(){
