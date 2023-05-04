@@ -127,7 +127,9 @@ button.btn.btn-primary.dropdown-toggle{
     border: none;
 }
 
-
+li{
+  margin:15px;
+}
 
 
 
@@ -200,14 +202,28 @@ button.btn.btn-primary.dropdown-toggle{
   
 	
 		function btnToggle() {
-			document.getElementById("Dropdown").classList.toggle("show");
+			document.getElementById("dropdown-menu").classList.toggle("show");
 		}
 		
-		document.getElementById("Dropdown").addEventListener('click', function (event) {
+		document.getElementById("dropdown-menu").addEventListener('click', function (event) {
 			alert("click outside");
 			event.stopPropagation();
 		});
-		
+    window.onclick = function(event) {
+			if (!event.target.matches('.dropdownmenu')) {
+			
+				var dropdowns =
+				document.getElementsByClassName("dropdownmenu");
+				
+				var i;
+				for (i = 0; i < dropdowns.length; i++) {
+					var openDropdown = dropdowns[i];
+					if (openDropdown.classList.contains('show')) {
+						openDropdown.classList.remove('show');
+					}
+				}
+			}
+		}
 		
 	</script>	
 </body>
@@ -284,9 +300,12 @@ button.btn.btn-primary.dropdown-toggle{
   <span class="caret"></span></button>
   <div id="Dropdown" class="dropdownmenu-content" >
 
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuClickableInside">
-      <li>
-        <div class="btn-group" role="group" aria-label="Basic example">
+    <ul id="dropdown-menu" class="dropdown-menu" aria-labelledby="dropdownMenuClickableInside">
+      <button type="button" class="btn-close" aria-label="Close" s></button>  
+
+      <li id="drroop">
+
+      <div class="btn-group" role="group" aria-label="Basic example">
           <LABEL>Adults:</LABEL>&nbsp;&nbsp;&nbsp;
 
         <button type="button" class="btn btn-primary" onclick="buttonClick1();">-</button>
@@ -294,7 +313,7 @@ button.btn.btn-primary.dropdown-toggle{
         <button type="button" class="btn btn-primary" onclick="buttonClick();">+</button>
         </div>
 </li>
-      <li><div class="btn-group" role="group" aria-label="Basic example">
+      <li id="drroop"><div class="btn-group" role="group" aria-label="Basic example">
         <LABEL>Teens:</LABEL>&nbsp;&nbsp;&nbsp;&nbsp;
 
         <button type="button" class="btn btn-primary" onclick="buttonClick3();">-</button>
@@ -303,7 +322,7 @@ button.btn.btn-primary.dropdown-toggle{
       </div>
       
       </li>
-      <li>
+      <li id="drroop">
         <li><div class="btn-group" role="group" aria-label="Basic example">
           <LABEL>Kids:</LABEL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   
@@ -312,7 +331,6 @@ button.btn.btn-primary.dropdown-toggle{
           <button type="button" class="btn btn-primary" onclick="buttonClick4();">+</button>
         </div>
       </li>
-      <li><button type="button" class="close">Close&times;</button></li>
 
     </ul>
     </div>
