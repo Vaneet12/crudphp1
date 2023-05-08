@@ -123,7 +123,7 @@ margin:20px 10px 10px 1px;
 button.btn.btn-primary.dropdown-toggle{
   background: white;
     color: black;
-    width: 119%;
+    width: 110%;
     border: none;
 }
 
@@ -134,6 +134,8 @@ li{
 
 
 </style>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
 <script>
   var i=0;
   var j=0;
@@ -203,8 +205,10 @@ li{
 	
 		function btnToggle() {
 			document.getElementById("dropdown-menu").classList.toggle("show");
-		}
+      document.getElementById("dropdown-menu").style.display="block";
+
 		
+    }
 		document.getElementById("dropdown-menu").addEventListener('click', function (event) {
 			alert("click outside");
 			event.stopPropagation();
@@ -213,7 +217,7 @@ li{
 			if (!event.target.matches('.dropdownmenu')) {
 			
 				var dropdowns =
-				document.getElementsByClassName("dropdownmenu");
+				document.getElementsByClassName("dropdown-menu");
 				
 				var i;
 				for (i = 0; i < dropdowns.length; i++) {
@@ -225,6 +229,12 @@ li{
 			}
 		}
 		
+
+  
+
+
+
+
 	</script>	
 </body>
 
@@ -289,21 +299,21 @@ li{
         <div class="row " style="height: 50px;">
           <div class="col-md-8 border">
             <input type="text" name="datetimes" id="litepicker" placeholder="Date Range" />
-
         
 </div>
           <div class="col-md-4 border">
           
-         <div class="dropdownmenu">
+         <div class="dropdownmenu" id="drp1">
     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" data-bs-auto-close="false" onClick="btnToggle()" class="dropbutton"> <div  id="myval" value="0">0</div>Travellers
     
   <span class="caret"></span></button>
   <div id="Dropdown" class="dropdownmenu-content" >
 
+    <div class="div" id="Drop">
     <ul id="dropdown-menu" class="dropdown-menu" aria-labelledby="dropdownMenuClickableInside">
-      <button type="button" class="btn-close" aria-label="Close" s></button>  
+      <button type="button" class="btn-close" onclick="ClickMe()" aria-label="Close" ></button>  
 
-      <li id="drroop">
+      <li>
 
       <div class="btn-group" role="group" aria-label="Basic example">
           <LABEL>Adults:</LABEL>&nbsp;&nbsp;&nbsp;
@@ -313,7 +323,7 @@ li{
         <button type="button" class="btn btn-primary" onclick="buttonClick();">+</button>
         </div>
 </li>
-      <li id="drroop"><div class="btn-group" role="group" aria-label="Basic example">
+      <li><div class="btn-group" role="group" aria-label="Basic example">
         <LABEL>Teens:</LABEL>&nbsp;&nbsp;&nbsp;&nbsp;
 
         <button type="button" class="btn btn-primary" onclick="buttonClick3();">-</button>
@@ -322,7 +332,7 @@ li{
       </div>
       
       </li>
-      <li id="drroop">
+      <li>
         <li><div class="btn-group" role="group" aria-label="Basic example">
           <LABEL>Kids:</LABEL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   
@@ -333,6 +343,7 @@ li{
       </li>
 
     </ul>
+  </div>
     </div>
   </div>
    
@@ -467,7 +478,22 @@ let picker = new Litepicker({
 $(".rotate").click(function () {
     $(this).toggleClass("up");
 })
+
+
+
 </script>
+
+<script>
+
+
+
+  function ClickMe()
+  {
+    document.getElementById("dropdown-menu").style.display="none";
+  }
+</script>
+
+
 
 
 </html>
