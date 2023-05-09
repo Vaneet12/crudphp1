@@ -1,3 +1,13 @@
+<?php
+include("connection3.php");
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -204,7 +214,6 @@ li{
   
 	
 		function btnToggle() {
-			document.getElementById("dropdown-menu").classList.toggle("show");
       document.getElementById("dropdown-menu").style.display="block";
 
 		
@@ -213,28 +222,10 @@ li{
 			alert("click outside");
 			event.stopPropagation();
 		});
-    window.onclick = function(event) {
-			if (!event.target.matches('.dropdownmenu')) {
-			
-				var dropdowns =
-				document.getElementsByClassName("dropdown-menu");
-				
-				var i;
-				for (i = 0; i < dropdowns.length; i++) {
-					var openDropdown = dropdowns[i];
-					if (openDropdown.classList.contains('show')) {
-						openDropdown.classList.remove('show');
-					}
-				}
-			}
-		}
-		
-
+    
   
 
-
-
-
+  
 	</script>	
 </body>
 
@@ -275,7 +266,7 @@ li{
             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
           </li>
         </ul>
-        <form class="d-flex">
+        <form class="d-flex" method="post" action="plan.php">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
@@ -287,14 +278,14 @@ li{
     
     <div class="col-md-4 border sed" >
         <h1 class="plan">Itinerary planner
-</h1>
+</h1><form method="post" action="plan.php">
 
         <div class="form-floating mb-3" id="addDes" >
-            <input type="name" class="form-control" id="floatingInput" placeholder="Enter destination (country, region, or city)">
+            <input type="name" class="form-control" id="floatingInput" placeholder="Enter destination (country, region, or city)" name="first" required>
             <label for="floatingInput" id="lab">Enter destination (country, region, or city)</label>
         </div>
 
-        <button type="button" class="btn btn-link" onclick="NewDes()">+ Add destination</button>
+        <button type="button" class="btn btn-link" onclick="NewDes()" >+ Add destination</button>
 
         <div class="row " style="height: 50px;">
           <div class="col-md-8 border">
@@ -304,7 +295,9 @@ li{
           <div class="col-md-4 border">
           
          <div class="dropdownmenu" id="drp1">
-    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" data-bs-auto-close="false" onClick="btnToggle()" class="dropbutton"> <div  id="myval" value="0">0</div>Travellers
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" data-bs-auto-close="false" onClick="btnToggle()" class="dropbutton" > 
+      <output  id="myval" value="0" name="total" >  
+       0</output> Travellers
     
   <span class="caret"></span></button>
   <div id="Dropdown" class="dropdownmenu-content" >
@@ -319,16 +312,16 @@ li{
           <LABEL>Adults:</LABEL>&nbsp;&nbsp;&nbsp;
 
         <button type="button" class="btn btn-primary" onclick="buttonClick1();">-</button>
-        <input type="text" id="inc" value="0"></input>
+        <input type="number" id="inc" value="0" ></input>
         <button type="button" class="btn btn-primary" onclick="buttonClick();">+</button>
         </div>
 </li>
       <li><div class="btn-group" role="group" aria-label="Basic example">
         <LABEL>Teens:</LABEL>&nbsp;&nbsp;&nbsp;&nbsp;
 
-        <button type="button" class="btn btn-primary" onclick="buttonClick3();">-</button>
-        <input type="text" id="incval" value="0"></input>
-        <button type="button" class="btn btn-primary" onclick="buttonClick2();">+</button>
+        <button type="button" class="btn btn-primary"  onclick="buttonClick3();">-</button>
+        <input type="number" id="incval" value="0" ></input>
+        <button type="button" class="btn btn-primary" onclick="buttonClick2(); ">+</button>
       </div>
       
       </li>
@@ -336,8 +329,8 @@ li{
         <li><div class="btn-group" role="group" aria-label="Basic example">
           <LABEL>Kids:</LABEL>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   
-          <button type="button" class="btn btn-primary" onclick="buttonClick5();">-</button>
-          <input type="text" id="incvall1" value="0"></input>
+          <button type="button" class="btn btn-primary" onclick="buttonClick5();" >-</button>
+          <input type="number" id="incvall1" value="0" ></input>
           <button type="button" class="btn btn-primary" onclick="buttonClick4();">+</button>
         </div>
       </li>
@@ -353,80 +346,80 @@ li{
         <div class="collapse12">
         <a data-target="#demo" data-toggle="collapse">
 
-          Activities preferences  (optional)<div class="fa fa-chevron-down rotate"></div>    </a>
+          Activities preferences  (optional)<div class="fa fa-chevron-down rotate"></div>   </a>
       
-      <div class="collapse out" id="demo">
+      <div class="collapse" id="demo">
         <div class="btn-group btn-group-toggle" data-toggle="buttons" style="margin:15px 20px 15px 5px;">  
           <label class="btn btn-secondary active">  
-            <input type="radio" name="options" id="professor" checked> Popular  
+            <input type="radio" name="options" id="professor" value="Popular" checked> Popular  
           </label>  
           <label class="btn btn-secondary">  
-            <input type="radio" name="options" id="designer" > Balanced  
+            <input type="radio" name="options" id="designer" value="Balanced"> Balanced  
           </label>  
           <label class="btn btn-secondary">  
-            <input type="radio" name="options" id="tester" > Hidden gems   
+            <input type="radio" name="options" id="tester" value=" Hidden gems"> Hidden gems   
           </label>  
           </div>
           <div class="btn-group btn-group-toggle" data-toggle="buttons" style="margin:15px 20px 15px 5px;">  
             <label class="btn btn-secondary active">  
-              <input type="radio" name="options" id="professor" checked> Slow & easy  
+              <input type="radio" name="r2" id="professor" value ="Slow & easy "checked> Slow & easy  
             </label>  
             <label class="btn btn-secondary">  
-              <input type="radio" name="options" id="designer" > Medium  
+              <input type="radio" name="r2" id="designer" value="Medium " > Medium  
             </label>  
             <label class="btn btn-secondary">  
-              <input type="radio" name="options" id="tester" > Fast-paced   
+              <input type="radio" name="r2" id="tester"value="Fast-paced" > Fast-paced   
             </label>  
              
             </div>
             <div class="diva">
 <div>            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Culture" name="rr[]">
               <label class="form-check-label" for="inlineCheckbox1">Culture</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="Outdoors" name="rr[]">
               <label class="form-check-label" for="inlineCheckbox2">Outdoors</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" >
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="Relaxing"  name="rr[]">
               <label class="form-check-label" for="inlineCheckbox3">Relaxing</label>
             </div>
   </div>
   <div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Romantic" name="rr[]">
               <label class="form-check-label" for="inlineCheckbox1">Romantic</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="Beaches" name="rr[]">
               <label class="form-check-label" for="inlineCheckbox2">Beaches</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" >
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="Historic" name="rr[]">
               <label class="form-check-label" for="inlineCheckbox3">Historic</label>
             </div>
   </div>
   <div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Museums" name="rr[]">
               <label class="form-check-label" for="inlineCheckbox1">Museums
 </label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="Shopping" name="rr[]">
               <label class="form-check-label" for="inlineCheckbox2">Shopping</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" >
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="Wildlife" name="rr[]" >
               <label class="form-check-label" for="inlineCheckbox3">Wildlife</label>
             </div>
       </div>
   </diV>
-        <button class="see">See your trip</button> 
+        <input type="submit" class="see" name="submit" value="See Your Trip">
 
     </div>
-  
+  </form>
     <div class="col-md-4 "></div>
 
   </div>
@@ -447,6 +440,7 @@ li{
       let input = document.createElement('input');
       input.setAttribute("id","floatingInput");
       input.classList.add("form-control");
+      input.setAttribute("name","language[]");
 
       
       // var x = document.createElement("INPUT");
@@ -491,9 +485,49 @@ $(".rotate").click(function () {
   {
     document.getElementById("dropdown-menu").style.display="none";
   }
+
+
+  function mycllick(){
+    var input = document.createElement("input");
+
+input.setAttribute("type", "hidden");
+
+input.setAttribute("name", "name_you_want");
+
+  }
+
+
+  console.log(floatingInput.value,"sdg")
 </script>
 
 
 
 
 </html>
+<?php
+if(isset($_POST['submit'])){
+  $location=$_POST['first'];
+  $lang=$_POST['language'];
+$lang1=implode(",",$lang);
+$duration =$_POST['datetimes'];
+$total=$_POST['total'];
+$options=$_POST['options'];
+$r2=$_POST['r2'];
+
+$rr=$_POST['rr'];
+$rr1=implode(",",$rr);
+$query ="INSERT INTO `form`(location,locations,duration,total,options,r2,rr) VALUES ('$location','$lang1','$duration','$total','$options','$r2','$rr1')";
+  $data=mysqli_query($con,$query);
+  if($data){
+    echo "data inserted";
+  }
+  else{
+    
+    echo "not inserted";
+  }
+}
+if (!mysqli_query($con, $query)) {
+  echo "Error: " . mysqli_error($con);
+}
+
+?>
