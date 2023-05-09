@@ -135,12 +135,16 @@ button.btn.btn-primary.dropdown-toggle{
     color: black;
     width: 110%;
     border: none;
+    height:60px;
+
 }
 
 li{
   margin:15px;
 }
-
+button.btn.btn-primary.dropdown-toggle:hover{
+  background:white;
+}
 
 
 </style>
