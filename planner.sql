@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 09, 2023 at 02:34 PM
+-- Generation Time: May 15, 2023 at 01:48 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `form` (
+  `id` int(11) NOT NULL,
   `location` varchar(255) NOT NULL,
   `locations` varchar(255) NOT NULL,
   `duration` varchar(255) NOT NULL,
@@ -41,57 +42,39 @@ CREATE TABLE `form` (
 -- Dumping data for table `form`
 --
 
-INSERT INTO `form` (`location`, `locations`, `duration`, `total`, `options`, `r2`, `rr`) VALUES
-('rtfgjhmn', 'ghmn', '10 May 2023 - 12 Jun 2023', '0', '', '', ''),
-('rtfgjhmn', 'ghmn', '10 May 2023 - 12 Jun 2023', '0', '', '', ''),
-('rtfgjhmn', 'ghmn', '10 May 2023 - 12 Jun 2023', '0', '', '', ''),
-('rtfgjhmn', 'ghmn', '10 May 2023 - 12 Jun 2023', '0', '', '', ''),
-('rtfgjhmn', 'ghmn', '10 May 2023 - 12 Jun 2023', '0', '', '', ''),
-('rtfgjhmn', 'ghmn', '10 May 2023 - 12 Jun 2023', '0', '', '', ''),
-('retfgh', 'ftgjmhv,fghjmvb,fvyhmkj', '24 May 2023 - 12 Jun 2023', '0', '', '', ''),
-('retfgh', 'ftgjmhv,fghjmvb,fvyhmkj', '24 May 2023 - 12 Jun 2023', '0', '', '', ''),
-('rtfgjhmn', 'ghmn', '10 May 2023 - 12 Jun 2023', '', '', '', ''),
-('rtfgjhmn', 'ghmn', '10 May 2023 - 12 Jun 2023', '', '', '', ''),
-('dxfgbh', 'dfgvb,fvgb', '08 May 2023 - 09 May 2023', '', '', '', ''),
-('dxfgbh', 'dfgvb,fvgb', '08 May 2023 - 09 May 2023', '', '', '', ''),
-('jk;l', 'jnkl', '10 May 2023 - 15 Jun 2023', '', '', '', ''),
-('jk;l', 'jnkl', '10 May 2023 - 15 Jun 2023', '', '', '', ''),
-('fgjn', 'dfghnb', '10 May 2023 - 16 Jun 2023', '3', '', '', ''),
-('fgjn', 'dfghnb', '10 May 2023 - 16 Jun 2023', '3', '', '', ''),
-('dxfgbh', 'dfgvb,fvgb', '08 May 2023 - 09 May 2023', '', '', '', ''),
-('dxfgbh', 'dfgvb,fvgb', '08 May 2023 - 09 May 2023', '', '', '', ''),
-('xfgtynhj', 'xdfrtgbh', '12 May 2023 - 16 Jun 2023', '4', '', '', ''),
-('xfgtynhj', 'xdfrtgbh', '12 May 2023 - 16 Jun 2023', '4', '', '', ''),
-('ghm', 'ghjm,k', '10 May 2023 - 12 Jun 2023', '3', '', '', ''),
-('ghm', 'ghjm,k', '10 May 2023 - 12 Jun 2023', '3', '', '', ''),
-('ghm', 'ghjm,k', '10 May 2023 - 12 Jun 2023', '3', '', '', ''),
-('ghm', 'ghjm,k', '10 May 2023 - 12 Jun 2023', '3', '', '', ''),
-('ghn', 'fvghmk', '11 May 2023 - 16 Jun 2023', '6', '', '', ''),
-('ghn', 'fvghmk', '11 May 2023 - 16 Jun 2023', '6', '', '', ''),
-('fghncgfj', 'fghnmj', '10 May 2023 - 15 Jun 2023', '5', '', '', ''),
-('fghncgfj', 'fghnmj', '10 May 2023 - 15 Jun 2023', '5', '', '', ''),
-('fghncgfj', 'fghnmj', '10 May 2023 - 15 Jun 2023', '5', '', '', ''),
-('fghncgfj', 'fghnmj', '10 May 2023 - 15 Jun 2023', '5', '', '', ''),
-('xfyhjm', 'ghjbnm,k', '13 May 2023 - 14 Jun 2023', '4', '', '', ''),
-('xfyhjm', 'ghjbnm,k', '13 May 2023 - 14 Jun 2023', '4', '', '', ''),
-('tgyhjk', 'cyghk', '08 May 2023 - 09 May 2023', '4', '', '', ''),
-('tgyhjk', 'cyghk', '08 May 2023 - 09 May 2023', '4', '', '', ''),
-('tgyhjk', 'cyghk', '08 May 2023 - 09 May 2023', '4', '', '', ''),
-('tgyhjk', 'cyghk', '08 May 2023 - 09 May 2023', '4', '', '', ''),
-('xfrtgj', 'cfghj', '18 May 2023 - 18 Jun 2023', '', 'on', 'on', 'option1,option2,option4,option5'),
-('xfrtgj', 'cfghj', '18 May 2023 - 18 Jun 2023', '', 'on', 'on', 'option1,option2,option4,option5'),
-('xfrtgj', 'cfghj', '18 May 2023 - 18 Jun 2023', '', 'on', 'on', 'option1,option2,option4,option5'),
-('xfrtgj', 'cfghj', '18 May 2023 - 18 Jun 2023', '', 'on', 'on', 'option1,option2,option4,option5'),
-('xfghbnmj', 'cghvnm,vgbhnm', '17 May 2023 - 13 Jun 2023', '', 'Balanced', 'Medium ', 'Culture,Outdoors,Relaxing,Romantic,Beaches,Historic,Shopping,Wildlife'),
-('xfghbnmj', 'cghvnm,vgbhnm', '17 May 2023 - 13 Jun 2023', '', 'Balanced', 'Medium ', 'Culture,Outdoors,Relaxing,Romantic,Beaches,Historic,Shopping,Wildlife'),
-('xfghbnmj', 'cghvnm,vgbhnm', '17 May 2023 - 13 Jun 2023', '', 'Balanced', 'Medium ', 'Culture,Outdoors,Relaxing,Romantic,Beaches,Historic,Shopping,Wildlife'),
-('xfghbnmj', 'cghvnm,vgbhnm', '17 May 2023 - 13 Jun 2023', '', 'Balanced', 'Medium ', 'Culture,Outdoors,Relaxing,Romantic,Beaches,Historic,Shopping,Wildlife'),
-('xfghbnmj', 'cghvnm,vgbhnm', '17 May 2023 - 13 Jun 2023', '', 'Balanced', 'Medium ', 'Culture,Outdoors,Relaxing,Romantic,Beaches,Historic,Shopping,Wildlife'),
-('xfghbnmj', 'cghvnm,vgbhnm', '17 May 2023 - 13 Jun 2023', '', 'Balanced', 'Medium ', 'Culture,Outdoors,Relaxing,Romantic,Beaches,Historic,Shopping,Wildlife'),
-('gchnm', 'hjnm,', '12 May 2023 - 12 Jun 2023', '', 'Popular', 'Slow & easy ', 'Culture,Outdoors,Romantic,Beaches,Historic,Shopping,Wildlife'),
-('gchnm', 'hjnm,', '12 May 2023 - 12 Jun 2023', '', 'Popular', 'Slow & easy ', 'Culture,Outdoors,Romantic,Beaches,Historic,Shopping,Wildlife'),
-('rftygh', 'fvyghj', '12 May 2023 - 17 Jun 2023', '', 'Balanced', 'Medium ', 'Culture,Relaxing,Romantic,Beaches,Historic'),
-('rftygh', 'fvyghj', '12 May 2023 - 17 Jun 2023', '', 'Balanced', 'Medium ', 'Culture,Relaxing,Romantic,Beaches,Historic');
+INSERT INTO `form` (`id`, `location`, `locations`, `duration`, `total`, `options`, `r2`, `rr`) VALUES
+(85, 'jhkl.', 'lkj.', '19 May 2023 - 15 Jun 2023', '', 'Popular', 'Slow & easy', 'Outdoors,Romantic,Historic'),
+(86, 'jhkl.', 'lkj.', '19 May 2023 - 15 Jun 2023', '', 'Popular', 'Slow & easy', 'Outdoors,Romantic,Historic'),
+(87, 'ghm', 'ghmvn ', '11 May 2023 - 29 Jun 2023', '', 'Popular', 'Slow & easy', 'Romantic,Beaches,Historic'),
+(88, 'ghm', 'ghmvn ', '11 May 2023 - 29 Jun 2023', '', 'Popular', 'Slow & easy', 'Romantic,Beaches,Historic'),
+(89, 'yul', 'yuhlk', '12 May 2023 - 16 Jun 2023', '', 'Popular', 'Slow & easy', 'Romantic,Shopping,Wildlife'),
+(90, 'yul', 'yuhlk', '12 May 2023 - 16 Jun 2023', '', 'Popular', 'Slow & easy', 'Romantic,Shopping,Wildlife'),
+(91, 'yul', 'yuhlk', '12 May 2023 - 16 Jun 2023', '', 'Popular', 'Slow & easy', 'Romantic,Shopping,Wildlife'),
+(92, 'yul', 'yuhlk', '12 May 2023 - 16 Jun 2023', '', 'Popular', 'Slow & easy', 'Romantic,Shopping,Wildlife'),
+(93, 'yul', 'yuhlk', '12 May 2023 - 16 Jun 2023', '', 'Popular', 'Slow & easy', 'Romantic,Shopping,Wildlife'),
+(94, 'yul', 'yuhlk', '12 May 2023 - 16 Jun 2023', '', 'Popular', 'Slow & easy', 'Romantic,Shopping,Wildlife'),
+(95, 'gkj', 'ghnkj', '19 May 2023 - 23 Jun 2023', '', 'Popular', 'Slow & easy', 'Romantic,Beaches,Historic'),
+(96, 'gkj', 'ghnkj', '19 May 2023 - 23 Jun 2023', '', 'Popular', 'Slow & easy', 'Romantic,Beaches,Historic');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `form`
+--
+ALTER TABLE `form`
+  ADD UNIQUE KEY `id` (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `form`
+--
+ALTER TABLE `form`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
